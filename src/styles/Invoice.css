@@ -1,0 +1,361 @@
+/* Main Container */
+.invoice-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.main-header {
+    color: #2C3E50;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Form Layout */
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+/* Left Section */
+.left-section {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-card {
+    text-align: center;
+}
+
+.upload-subtext {
+    color: #7F8C8D;
+    margin: 10px 0;
+}
+
+.pdf-upload-container {
+    border: 2px dashed #BDC3C7;
+    border-radius: 8px;
+    padding: 30px 20px;
+    margin-top: 15px;
+}
+
+.upload-instruction {
+    color: #95A5A6;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Right Section */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Vendor Card */
+.vendor-card {
+    background: #F8F9FA;
+    border: 1px solid #ECF0F1;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.vendor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.vendor-details-button {
+    background: none;
+    border: 1px solid #2C3E50;
+    color: #2C3E50;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.vendor-info h3 {
+    margin: 0;
+    color: #2C3E50;
+    font-size: 16px;
+}
+
+.vendor-info p {
+    color: #7F8C8D;
+    margin: 5px 0 0;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #2C3E50;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-select,
+.date-input,
+.description-field,
+.comment-field {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #BDC3C7;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.amount-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #BDC3C7;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.amount-input span {
+    color: #7F8C8D;
+    margin-right: 5px;
+}
+
+.amount-input input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+/* Expense Section */
+.expense-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-summary {
+    text-align: right;
+    color: #7F8C8D;
+    margin-bottom: 15px;
+}
+
+.expense-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 100px;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: end;
+}
+
+.expense-field {
+    position: relative;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    color: #E74C3C;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.add-expense-button {
+    background: none;
+    border: none;
+    color: #2980B9;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.draft-button {
+    background: #ECF0F1;
+    color: #2C3E50;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.primary-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.submit-button {
+    background: #2980B9;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-button {
+    background: #E74C3C;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.date {
+    width: 97%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.form-select.error,
+.input-field.error {
+    border-color: #e74c3c;
+}
+
+.dummy-data-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+/* Base Styles */
+.invoice-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+/* Left Section Styles */
+.upload-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+/* Right Section Styles */
+.vendor-card,
+.details-card,
+.expense-card {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.currency-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Expense Section */
+.expense-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+/* Buttons */
+.primary-btn {
+    background: #2c3e50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background: #bb2020;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+/* Error Messages */
+.error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-row {
+        grid-template-columns: 1fr;
+    }
+}
