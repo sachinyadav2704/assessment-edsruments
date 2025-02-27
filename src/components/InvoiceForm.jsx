@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { Formik, Form, Field, FieldArray } from 'formik';
 import { useEffect, useState, useCallback } from 'react';
@@ -8,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useDropzone } from 'react-dropzone';
 import '../styles/Invoice.css';
+import PropTypes from 'prop-types';
 
 const validationSchema = Yup.object().shape({
    poNumber: Yup.string().required('Required'),
@@ -74,6 +74,9 @@ const PdfUpload = ({ onFileUpload }) => {
          )}
       </div>
    );
+};
+PdfUpload.propTypes = {
+   onFileUpload: PropTypes.func.isRequired,
 };
 
 const InvoiceForm = () => {
@@ -148,8 +151,8 @@ const InvoiceForm = () => {
             {({ values, errors, touched, setValues, setFieldValue }) => (
                <Form className="form-wrapper">
                   <div className="left-section">
-                     <div className="upload-card">
-                        <h3>Unload Your Invoice</h3>
+                     <div className="upload-card section-card">
+                        <h3>Upload Your Invoice</h3>
                         <p>To auto-populate fields and save time</p>
                         <PdfUpload onFileUpload={file => setFieldValue('pdfFile', file)} />
                         <button type="button" className="dummy-btn secondary-btn" onClick={() => loadDummyData(setValues)}>
@@ -159,7 +162,7 @@ const InvoiceForm = () => {
                   </div>
 
                   <div className="right-section">
-                     <div className="vendor-card">
+                     <div className="vendor-card section-card">
                         <div className="vendor-header">
                            <h2>Vendor Details</h2>
                            <button type="button" className="outline-btn secondary-btn">
@@ -184,7 +187,7 @@ const InvoiceForm = () => {
                         </div>
                      </div>
 
-                     <div className="details-card">
+                     <div className="details-card section-card">
                         <h2>Invoice Details</h2>
                         <div className="form-grid">
                            <div className="form-group">
@@ -222,7 +225,7 @@ const InvoiceForm = () => {
 
                            <div className="date-group">
                               <div className="form-group">
-                                 <label>QL Post Date *</label>
+                                 <label>GL Post Date *</label>
                                  <Field type="date" name="glPostDate" className="form-input" />
                                  {errors.glPostDate && touched.glPostDate && <div className="error">{errors.glPostDate}</div>}
                               </div>
@@ -240,7 +243,7 @@ const InvoiceForm = () => {
                         </div>
                      </div>
 
-                     <div className="expense-card">
+                     <div className="expense-card section-card">
                         <h2>Expense Details</h2>
                         <div className="expense-summary">
                            <span>Total: ${totalExpenses.toFixed(2)}</span>
@@ -249,40 +252,43 @@ const InvoiceForm = () => {
                            {({ push, remove }) => (
                               <>
                                  {values.expenses.map((expense, index) => (
-                                    <div key={index} className="expense-row">
-                                       <div className="form-group">
-                                          <label>Line Amount *</label>
-                                          <div className="currency-input">
-                                             <span>$</span>
-                                             <Field type="number" name={`expenses.${index}.lineAmount`} className="form-input" />
+                                    <div key={index}>
+                                       <div className="expense-row">
+                                          <div className="form-group">
+                                             <label>Line Amount *</label>
+                                             <div className="currency-input">
+                                                <span>$</span>
+                                                <Field type="number" name={`expenses.${index}.lineAmount`} className="form-input" />
+                                             </div>
                                           </div>
+                                          <div className="form-group">
+                                             <label>Department *</label>
+                                             <Field as="select" name={`expenses.${index}.department`} className="form-input">
+                                                <option value="">Select Department</option>
+                                                <option value="Marketing">Marketing</option>
+                                             </Field>
+                                          </div>
+                                          <div className="form-group">
+                                             <label>Account *</label>
+                                             <Field as="select" name={`expenses.${index}.account`} className="form-input">
+                                                <option value="">Select Account</option>
+                                                <option value="Advertising">Advertising</option>
+                                             </Field>
+                                          </div>
+                                          <div className="form-group">
+                                             <label>Location *</label>
+                                             <Field as="select" name={`expenses.${index}.location`} className="form-input">
+                                                <option value="">Select Location</option>
+                                                <option value="HQ">HQ</option>
+                                             </Field>
+                                          </div>
+                                          {index > 0 && (
+                                             <button type="button" onClick={() => remove(index)} className="remove-btn">
+                                                ×
+                                             </button>
+                                          )}
                                        </div>
-                                       <div className="form-group">
-                                          <label>Department *</label>
-                                          <Field as="select" name={`expenses.${index}.department`} className="form-input">
-                                             <option value="">Select Department</option>
-                                             <option value="Marketing">Marketing</option>
-                                          </Field>
-                                       </div>
-                                       <div className="form-group">
-                                          <label>Account *</label>
-                                          <Field as="select" name={`expenses.${index}.account`} className="form-input">
-                                             <option value="">Select Account</option>
-                                             <option value="Advertising">Advertising</option>
-                                          </Field>
-                                       </div>
-                                       <div className="form-group">
-                                          <label>Location *</label>
-                                          <Field as="select" name={`expenses.${index}.location`} className="form-input">
-                                             <option value="">Select Location</option>
-                                             <option value="HQ">HQ</option>
-                                          </Field>
-                                       </div>
-                                       {index > 0 && (
-                                          <button type="button" onClick={() => remove(index)} className="remove-btn">
-                                             ×
-                                          </button>
-                                       )}
+                                       <hr className="expense-divider" />
                                     </div>
                                  ))}
                                  <button
@@ -297,7 +303,7 @@ const InvoiceForm = () => {
                         </FieldArray>
                      </div>
 
-                     <div className="comments-card">
+                     <div className="comments-card section-card">
                         <h2>Comments</h2>
                         <Field
                            style={{ width: '100%' }}
